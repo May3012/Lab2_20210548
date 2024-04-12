@@ -16,4 +16,20 @@ public class MinaController {
         return "minar";
     }
 
+    @PostMapping("/buscaminas")
+    public String guardar(@RequestParam("inputfilas3") String filas,
+                          @RequestParam("inputcolumnas3") String columnas,
+                          @RequestParam("inputIntentos3") String intentos,
+                          @RequestParam("inputBombas3") String bombas,
+                          @RequestParam("inputPosicionBomba") String poscionBomba,Model model){
+        model.addAttribute("filas",filas);
+        model.addAttribute("columnas",columnas);
+        model.addAttribute("intentos",intentos);
+        model.addAttribute("bombas",bombas);
+        model.addAttribute("poscionBomba",poscionBomba);
+        return "minar";
+    }
+
+
+
 }
