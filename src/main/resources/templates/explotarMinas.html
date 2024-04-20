@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+          crossorigin="anonymous">
+    <title>Juego de Buscaminas</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        th {
+            background-color: #19ece5;
+        }
+        .bomb {
+            background-color: #9621da;
+        }
+        .visited {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<h1>Encuentre todo el cobre para ganar el juego</h1>
+<form action="/jugar" method="post">
+    <label for="coordenada">Fila:</label>
+    <input type="text" id="coordenada" name="coordenada">
+    <button type="submit">Explotar</button>
+</form>
+
+
+<table>
+    <tbody>
+    <tr th:each="fila, filaIdx : ${tablero}">
+        <td th:each="bloque, celdaIdx : ${fila}" th:id="'celda-' + ${filaIdx.index} + '-' + ${celdaIdx.index}"
+            th:class="${bloque eq -1} ? 'bomb' : (${visited[filaIdx.index][celdaIdx.index]} ? 'visited' : '')"
+            th:text="${bloque eq 0} ? '' : (${bloque eq -1} ? '*' : ${bloque})" >
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p>Encontró una bomba, le queda(n) <span th:text="${intentos}"></span> intento(s) !</p>
+<p th:if="${intentos == 0}">Usted ha perdido el juego !</p>
+</body>
+</html>
