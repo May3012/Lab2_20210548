@@ -9,63 +9,64 @@
     tools:context=".StatisticsActivity">
 
     <!-- MaterialToolbar -->
-
-    <!-- Recuadro con texto y scroll -->
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
-        android:layout_width="483dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme"
         android:title="Estadísticas"
-        android:titleTextColor="@android:color/white"
-        tools:layout_editor_absoluteX="-66dp"
-        tools:layout_editor_absoluteY="-15dp" />
+        android:titleTextColor="@android:color/white"/>
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="133dp"
+        android:layout_height="34dp"
         android:text="Estadísticas"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="129dp" />
+        app:layout_constraintBottom_toTopOf="@+id/recuadroTexto"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693"
+        tools:layout_editor_absoluteX="124dp" />
 
+    <LinearLayout
+        android:id="@+id/recuadroTexto"
+        android:layout_width="275dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/nuevoJuegoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/materialToolbar">
 
+        <ScrollView
+            android:layout_width="917dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/statisticsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Juego 1: Terminó en 10s\n Juego 2: Canceló\n Juego 3: Terminó en 13s\n Juego 4: Terminó en 53s\n Juego 5: Terminó en 12s\n Juego 6: Terminó en 21s\n Juego 7: Canceló\n Juego 8: Canceló\n"
+                android:textSize="18sp" />
+        </ScrollView>
+    </LinearLayout>
 
     <!-- Botón Nuevo Juego -->
     <Button
         android:id="@+id/nuevoJuegoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginBottom="120dp"
         android:text="Nuevo Juego"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="503dp" />
-
-    <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="289dp"
-        android:layout_gravity="center"
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:padding="16dp"
-        tools:layout_editor_absoluteX="-9dp"
-        tools:layout_editor_absoluteY="198dp">
-
-        <TextView
-            android:id="@+id/statisticsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp" />
-
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="16dp"/>
-
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

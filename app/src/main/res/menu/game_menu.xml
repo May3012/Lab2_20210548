@@ -8,6 +8,6 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_query_stats_24"
         android:orderInCategory="10"
-        android:title="statistics"
+        android:title="Estadísticas"
         app:showAsAction="always" />
 </menu>
