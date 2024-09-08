@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlayingAhorcado">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="55dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+        <!-- Grid de letras (Abecedario) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="15dp">
+
+
+            <!-- Imagen del ahorcado -->
+            <ImageView
+                android:id="@+id/imagenAhorcado"
+                android:layout_width="284dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="40dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/antenna_sinfondo2"
+                android:translationX="38dp"
+                android:translationY="-15dp"/>
+
+            <ImageView
+                android:id="@+id/cabeza"
+                android:layout_width="77dp"
+                android:layout_height="67dp"
+                android:layout_marginTop="70dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/head1_sinfondo2"
+                android:translationX="253dp"
+                android:translationY="-18dp"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/torso"
+                android:layout_width="14dp"
+                android:layout_height="67dp"
+                android:layout_marginTop="140dp"
+                android:scaleType="fitXY"
+                android:translationX="285dp"
+                android:translationY="-22dp"
+                app:srcCompat="@drawable/torso_sinfondo2"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/brazo_derecho"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="132dp"
+                android:translationX="270dp"
+                android:translationY="-28dp"
+                app:srcCompat="@drawable/brazodere_piernaizq_sinfondo2"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/brazo_izquierdo"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="132dp"
+                android:translationX="220dp"
+                android:translationY="-28dp"
+                app:srcCompat="@drawable/brazoizq_piernadere_sin"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/pierna_izquierda"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="200dp"
+                android:translationX="220dp"
+                android:translationY="-18dp"
+                app:srcCompat="@drawable/brazodere_piernaizq_sinfondo2"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/pierna_derecha"
+                android:layout_width="94dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="200dp"
+                android:translationX="270dp"
+                android:translationY="-18dp"
+                app:srcCompat="@drawable/brazoizq_piernadere_sin"
+                android:visibility="invisible"/>
+
+
+        </RelativeLayout>
+
+        <!-- TextView para mostrar el mensaje final -->
+        <TextView
+            android:id="@+id/mensajeFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:gravity="center" />
+        <Chronometer
+            android:id="@+id/cronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/words"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/white"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:gravity="center"/>
+
+
+        <GridLayout
+            android:id="@+id/letrasGridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="16dp"
+            android:columnCount="7"
+            android:gravity="center_horizontal"
+            android:textAlignment="center">
+
+            <!-- Botones de las letras del abecedario -->
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="A" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="B" />
+
+            <Button
+                android:layout_width="57dp"
+                android:onClick="seleccionarLetra"
+                android:text="C" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="D" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="E" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="F" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="G" />
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="H" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="I" />
+
+            <Button
+                android:layout_width="57dp"
+                android:onClick="seleccionarLetra"
+                android:text="J" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="K" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="L" />
+
+            <Button
+                android:layout_width="57dp"
+                android:onClick="seleccionarLetra"
+                android:text="M" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="N" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="O" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="P" />
+
+            <Button
+                android:layout_width="57dp"
+                android:onClick="seleccionarLetra"
+                android:text="Q" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="R" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="S" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="T" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="U" />
+
+
+        </GridLayout>
+        <GridLayout
+            android:id="@+id/letrasGridLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:columnCount="7"
+            android:gravity="center_horizontal"
+            android:textAlignment="center">
+
+            <Button
+                android:layout_width="57dp"
+                android:onClick="seleccionarLetra"
+                android:text="V" />
+
+            <Button
+                android:layout_width="58dp"
+                android:onClick="seleccionarLetra"
+                android:text="W" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="X" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="Y" />
+
+            <Button
+                android:layout_width="56dp"
+                android:onClick="seleccionarLetra"
+                android:text="Z" />
+        </GridLayout>
+
+        <!-- Botón para nuevo juego -->
+        <Button
+            android:id="@+id/nuevoJuegoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuevo Juego"
+            android:layout_marginTop="16dp"/>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

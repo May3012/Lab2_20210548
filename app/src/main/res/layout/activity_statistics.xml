@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".StatisticsActivity">
+
+    <!-- MaterialToolbar -->
+
+    <!-- Recuadro con texto y scroll -->
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="483dp"
+        android:layout_height="80dp"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:title="Estadísticas"
+        android:titleTextColor="@android:color/white"
+        tools:layout_editor_absoluteX="-66dp"
+        tools:layout_editor_absoluteY="-15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estadísticas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+
+
+    <!-- Botón Nuevo Juego -->
+    <Button
+        android:id="@+id/nuevoJuegoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Nuevo Juego"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="503dp" />
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="289dp"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:layout_editor_absoluteX="-9dp"
+        tools:layout_editor_absoluteY="198dp">
+
+        <TextView
+            android:id="@+id/statisticsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
